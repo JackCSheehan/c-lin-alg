@@ -18,7 +18,7 @@ typedef struct {
 // Vector operations
 double getVectorMagnitude(Vector*);
 int areVectorsEqual(Vector*, Vector*);
-void scaleVector(Vector*, int);
+void scaleVector(Vector*, int, Vector*);
 void addVectors(Vector*, Vector*, Vector*);
 double dotProduct(Vector*, Vector*);
 void crossProduct(Vector*, Vector*, Vector*);

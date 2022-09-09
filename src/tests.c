@@ -27,35 +27,29 @@ void testAreVectorsEqual() {
 }
 
 void testScaleVector() {
-    Vector vector1 = {1, 2, 4};
-    int scalar1 = 0;
-    Vector scaledVector1 = {0, 0, 0};
-    scaleVector(&vector1, scalar1);
-    assert(areVectorsEqual(&vector1, &scaledVector1));
+    Vector vector1;
+    scaleVector(&(Vector){1, 2, 4}, 0, &vector1);
+    assert(areVectorsEqual(&vector1, &(Vector){0, 0, 0}));
 
-    Vector vector2 = {0, 0, 0};
-    int scalar2 = 5;
-    Vector scaledVector2 = {0, 0, 0};
-    scaleVector(&vector2, scalar2);
-    assert(areVectorsEqual(&vector2, &scaledVector2));
+    Vector vector2;
+    scaleVector(&(Vector){0, 0, 0}, 5, &vector2);
+    assert(areVectorsEqual(&vector2, &(Vector){0, 0, 0}));
 
-    Vector vector3 = {5, 4, 7};
-    int scalar3 = 1;
-    Vector scaledVector3 = {5, 4, 7};
-    scaleVector(&vector3, scalar3);
-    assert(areVectorsEqual(&vector3, &scaledVector3));
+    Vector vector3;
+    scaleVector(&(Vector){5, 4, 7}, 1, &vector3);
+    assert(areVectorsEqual(&vector3, &(Vector){5, 4, 7}));
 
-    Vector vector4 = {1, 1, 1};
-    int scalar4 = 2;
-    Vector scaledVector4 = {2, 2, 2};
-    scaleVector(&vector4, scalar4);
-    assert(areVectorsEqual(&vector4, &scaledVector4));
+    Vector vector4;
+    scaleVector(&(Vector){1, 1, 1}, 2, &vector4);
+    assert(areVectorsEqual(&vector4, &(Vector){2, 2, 2}));
 
-    Vector vector5 = {4, 1, 2};
-    int scalar5 = 3;
-    Vector scaledVector5 = {12, 3, 6};
-    scaleVector(&vector5, scalar5);
-    assert(areVectorsEqual(&vector5, &scaledVector5));
+    Vector vector5;
+    scaleVector(&(Vector){4, 1, 2}, 3, &vector5);
+    assert(areVectorsEqual(&vector5, &(Vector){12, 3, 6}));
+
+    Vector vector6;
+    scaleVector(&(Vector){6, 9, 1}, -2, &vector6);
+    assert(areVectorsEqual(&vector6, &(Vector){-12, -18, -2}));
 }
 
 void testAddVectors() {

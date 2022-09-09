@@ -14,11 +14,11 @@ int areVectorsEqual(Vector* vector1, Vector* vector2) {
     return vector1->x == vector2->x && vector1->y == vector2->y && vector1->z == vector2->z;
 }
 
-// Multiplies the given vector by the given scalar
-void scaleVector(Vector* vector, int scalar) {
-    vector->x *= scalar;
-    vector->y *= scalar;
-    vector->z *= scalar;
+// Multiplies the given vector by the given scalar and puts result into result
+void scaleVector(Vector* vector, int scalar, Vector* result) {
+    result->x = vector->x * scalar;
+    result->y = vector->y * scalar;
+    result->z = vector->z * scalar;
 }
 
 // Adds the two vectors and places the sum in the sum vector
@@ -46,13 +46,13 @@ void crossProduct(Vector* vector1, Vector* vector2, Vector* product) {
 // Multiples the matrix by the vector and puts the result in the product vector
 void multiplyMatrixTimesVector(Matrix* matrix, Vector* vector, Vector* product) {
     // Vectors to be scaled by elements of given vector
-    Vector scaledVector1 = matrix->c1;
-    Vector scaledVector2 = matrix->c2;
-    Vector scaledVector3 = matrix->c3;
+    Vector scaledVector1;
+    Vector scaledVector2;
+    Vector scaledVector3;
     
-    scaleVector(&scaledVector1, vector->x);
-    scaleVector(&scaledVector2, vector->y);
-    scaleVector(&scaledVector3, vector->z);
+    scaleVector(&matrix->c1, vector->x, &scaledVector1);
+    scaleVector(&matrix->c2, vector->y, &scaledVector2);
+    scaleVector(&matrix->c3, vector->z, &scaledVector3);
 
     // Calculating result vector after linear transformation
     product->x = scaledVector1.x + scaledVector2.x + scaledVector3.x;
